@@ -32,15 +32,51 @@ using namespace std;
 */
 
 int main() {
-    // Example using vector (Random-Access Iterator)
+
+// Example using vector (Random-Access Iterator)
+
     vector<int> v = {10, 20, 30, 40, 50};
-    cout << "Vector elements using iterator:" << endl;
-    for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
+    cout << "Vector elements using iterator:" << endl;\
+
+    vector<int>::iterator it ; //declaration of iterator
+    for (it = v.begin(); it != v.end(); ++it) {
         cout << *it << " "; // Output: 10 20 30 40 50
     }
     cout << endl;
 
-    // Example using list (Bidirectional Iterator)
+
+// this is so important , improvement made in c++11 ... 
+
+    // range based looping // simple , sweet and short ... // can be used in every container 
+        for(int val : v ){ 
+            cout << val << " ";    
+        }
+        cout << endl;
+
+        // but val is copy of elements, so we can uses reference , if we want real values :)
+        for(int &val : v ){
+            val++ ; // each element will be incremented by 1 
+            cout << val << " "; 
+        }
+        cout << endl;
+
+
+    // using auto keyword ... 
+    // auto keyword is used to declare variables of any type , it will automatically detect the datatype of variable ... 
+
+        for(auto it = v.begin() ; it!= v.end() ; it++){ // here we need not to declare iterator ... 
+            cout << *it << " ";
+        }
+
+        // we can use auto with range based loop also 
+        for(auto val : v){
+            cout << val << " ";
+        }
+
+
+
+// Example using list (Bidirectional Iterator)
+
     list<int> l = {10, 20, 30, 40, 50};
     cout << "List elements using iterator:" << endl;
     for (list<int>::iterator it = l.begin(); it != l.end(); ++it) {
@@ -48,7 +84,8 @@ int main() {
     }
     cout << endl;
 
-    // Example using set (Bidirectional Iterator)
+// Example using set (Bidirectional Iterator)
+
     set<int> s = {50, 10, 40, 20, 30};
     cout << "Set elements using iterator:" << endl;
     for (set<int>::iterator it = s.begin(); it != s.end(); ++it) {
@@ -56,7 +93,8 @@ int main() {
     }
     cout << endl;
 
-    // Example modifying elements using iterator
+    
+// Example modifying elements using iterator
     cout << "Vector elements after modification using iterator:" << endl;
     for (vector<int>::iterator it = v.begin(); it != v.end(); ++it) {
         *it += 10;
@@ -64,12 +102,23 @@ int main() {
     }
     cout << endl;
 
-    // Example using reverse iterator
+// Example using reverse iterator
     cout << "Vector elements using reverse iterator:" << endl;
     for (vector<int>::reverse_iterator rit = v.rbegin(); rit != v.rend(); ++rit) {
         cout << *rit << " "; // Output: 60 50 40 30 20
     }
     cout << endl;
+
+// using iterator with vector of pair 
+    vector<pair<int, int>> v1 = {{10, 20}, {30,40} ,{50,60}} ;
+    cout << "Vector of pair elements using iterator:" << endl;
+    vector<pair<int,int>> :: iterator iter ; 
+    for (iter = v1.begin(); iter != v1.end(); ++iter) {
+        // cout << (*iter).first << " " << (*iter).second << endl;
+        cout << iter->first << " " << iter->second << endl ; 
+    }
+    
+
 
     return 0;
 }

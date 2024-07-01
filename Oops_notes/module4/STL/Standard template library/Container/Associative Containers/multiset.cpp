@@ -11,6 +11,12 @@
         
         -> std::multiset is implemented using a balanced binary search tree (usually red-black tree) to ensure efficient operations.
 
+
+    # operation that can be perform in multiset are :
+    insert()
+    erase() 
+    size()
+
 */
 
 #include <iostream>

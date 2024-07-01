@@ -11,15 +11,39 @@
         -> It's implemented using a balanced binary search tree (usually red-black tree) to ensure efficient operations.
 
         -> std::set provides a rich set of operations, including insertion, deletion, search, and iteration.
+
+    #operation which can be performed on set
+    1. Insertion: insert() function is used to insert elements into the set.
+    2. Deletion: erase() function is used to delete elements from the set.
+    3. Search: find() function is used to search for an element in the set.
+    4. Iteration: begin() and end() functions are used to iterate over the elements
+    5. Clear() 
+    6. Empty()
+    7. Size()
+
 */
 
 #include <iostream>
 #include <set>
 using namespace std;
 
+void printDecendingSet(set<int, greater<int>> s){
+    for(auto it = s.begin(); it != s.end(); it++){
+        cout << *it << " ";
+    }
+    cout << endl;
+}
+
+
 int main() {
     // Declare and initialize a set of integers
     set<int> s = {3, 1, 4, 1, 5, 9};
+
+
+    // make set in decending order 
+    set<int , greater<int>> my_set = {5,3,4,2,6,9} ; 
+    printDecendingSet(my_set) ; 
+
 
     // Insert elements into the set
     s.insert(2);
